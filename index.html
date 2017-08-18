@@ -2,11 +2,17 @@
 <html >
     <head>
             <link rel="stylesheet" type="text/css" href="css/style.css">
+            <link rel="stylesheet" type="text/css" href="css/pikaday.css">
             <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">     
     </head>
     <body  ng-app="tq_database" ng-controller="tq_db_controller" ng-cloak>
-        <div > <!-- page 1 -->
-            <form>
+        <div ng-view></div>
+        <script type = "text/ng-template" id = "page_1.html"> <!-- page 1 -->
+            <div class="container">
+                <ul class="menu">
+                    <a href="#"><li>New Interview Entry</li></a>
+                    <a href="#!/list"><li>View List of Interviews</li></a>
+                </ul>
                 <h2>TA Database</h2>
                 <ul class="form-style">
                     <li>
@@ -21,13 +27,7 @@
                     <li>
                         <label class="field-label">City <span class="required">*</span></label>
                         <select  ng-model="form_fields.val_city" class="field-select">
-                            <option value="">-- select --</option>
-                            <option value="London">London</option>
-                            <option value="Brington">Brington</option>
-                            <option value="Belfast">Belfast</option>
-                            <option value="Cardiff">Cardiff</option>
-                            <option value="Newcastle">Newcastle</option>
-                            <option value="Elsewhere">Elsewhere</option>
+                            <option ng-repeat="city in cities" value="{{city}}">{{city || '-- select --'}}</option>
                         </select>
                         <label class="error-message" ng-show="!form_fields.val_city && error_on">* This field is required</label>
                     </li>
@@ -48,16 +48,18 @@
                     <li>
                             <label class="field-label">Interviewee's email <span class="required">*</span></label><input type="text" ng-model="form_fields.val_interviewee_email"  class="field-long"  />
                             <label class="error-message" ng-show="!form_fields.val_interviewee_email && error_on">* This field is required</label>
+                            <label class="error-message" ng-show="form_fields.val_interviewee_email && invalid_email && error_on">* Invalid phone number.</label>
                     </li>
                  
                     <li>
                         <label class="field-label">Interviewee's phone number <span class="required">*</span></label>
-                        <input type="text" ng-model="form_fields.val_interviewee_phone"  class="field-long" />
+                        <input type="text" ng-model="form_fields.val_interviewee_phone"  placeholder="XXX-XXX-XXXX" class="field-long" />
                         <label class="error-message" ng-show="!form_fields.val_interviewee_phone && error_on">* This field is required</label>
+                        <label class="error-message" ng-show="form_fields.val_interviewee_phone && invalid_phone && error_on">* Invalid phone number.</label>
                     </li>
                     <li>
                         <label class="field-label">Date <span class="required">*</span></label>
-                        <input type="text"  ng-model="form_fields.val_date" class="field-long" />
+                        <input type="text"  id="datepicker" ng-model="form_fields.val_date" class="field-long" />
                         <label class="error-message" ng-show="!form_fields.val_date && error_on">* This field is required</label>
                     </li>
                     <li>
@@ -71,16 +73,35 @@
                     </li>
                 </ul>
             </form>
-        </div>
-        <div> <!-- page 2 -->
-
-        </div>
+        </script>
+        <script type = "text/ng-template" id = "page_2.html">
+            <div class="container">
+                    <ul class="menu">
+                            <a href="#"><li>New Interview Entry</li></a>
+                            <a href="#!/list"><li>View List of Interviews</li></a>
+                        </ul>
+                        <h2>TA Database</h2>
+                        <ul class="form-style">
+                        </ul>
+            </div>
+        </script>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
         <script type="text/javascript" src="js/app.js"></script>  
         <script type="text/javascript" src="js/utilities.js"></script>  
         <script type="text/javascript" src="js/pikaday.js"></script>
-        <script></script>
+        <script>
+                
+                    var picker = new Pikaday(
+                    {
+                        field: document.getElementById('datepicker'),
+                        firstDay: 1,
+                        minDate: new Date(),
+                        maxDate: new Date(2020, 12, 31),
+                        yearRange: [2000,2020]
+                    });
+                
+                    </script>
     </body>
 </html>

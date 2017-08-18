@@ -8,7 +8,8 @@ body {
     padding: 8px;
     margin: 8px;
     border-color: #3bbfce; }
-  body form {
+  body .container {
+    position: relative;
     background-color: #fff;
     width: 30%;
     margin: 0 auto;
@@ -17,39 +18,54 @@ body {
     -webkit-box-shadow: 0px -1px 5px -1px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px -1px 5px -1px rgba(0, 0, 0, 0.75);
     box-shadow: 0px -1px 5px -1px rgba(0, 0, 0, 0.75);
-    padding: 10px; }
-    body form h2 {
+    padding: 50px 10px 10px 10px; }
+    body .container .menu {
+      background-color: #ffe8b5;
+      position: absolute;
+      top: 0;
+      text-align: center;
+      width: 100%;
+      left: 0px;
+      display: block;
+      padding: 0;
+      margin: 0; }
+      body .container .menu li {
+        display: inline-block;
+        width: 46%;
+        padding: 10px;
+        text-decoration: underline; }
+    body .container h2 {
       text-align: center; }
-    body form .form-style {
+    body .container .form-style {
       margin: 10px auto;
       max-width: 400px;
       padding: 20px 12px 10px 20px;
       font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif; }
-      body form .form-style li {
+      body .container .form-style li {
         padding: 0;
         display: block;
         list-style: none;
         margin: 10px 0 0 0; }
-      body form .form-style label {
+      body .container .form-style label {
         margin: 0 0 3px 0;
         padding: 0px;
         display: block;
         font-weight: bold; }
-      body form .form-style .error-message {
+      body .container .form-style .error-message {
         color: #e00a0a;
         font-weight: lighter;
         float: right;
         font-size: 12px; }
-      body form .form-style input[type=text],
-      body form .form-style input[type=date],
-      body form .form-style input[type=datetime],
-      body form .form-style input[type=number],
-      body form .form-style input[type=search],
-      body form .form-style input[type=time],
-      body form .form-style input[type=url],
-      body form .form-style input[type=email],
-      body form .form-style textarea,
-      body form .form-style select {
+      body .container .form-style input[type=text],
+      body .container .form-style input[type=date],
+      body .container .form-style input[type=datetime],
+      body .container .form-style input[type=number],
+      body .container .form-style input[type=search],
+      body .container .form-style input[type=time],
+      body .container .form-style input[type=url],
+      body .container .form-style input[type=email],
+      body .container .form-style textarea,
+      body .container .form-style select {
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -61,39 +77,39 @@ body {
         -ms-transition: all 0.30s ease-in-out;
         -o-transition: all 0.30s ease-in-out;
         outline: none; }
-      body form .form-style input[type=text]:focus,
-      body form .form-style input[type=date]:focus,
-      body form .form-style input[type=datetime]:focus,
-      body form .form-style input[type=number]:focus,
-      body form .form-style input[type=search]:focus,
-      body form .form-style input[type=time]:focus,
-      body form .form-style input[type=url]:focus,
-      body form .form-style input[type=email]:focus,
-      body form .form-style textarea:focus,
-      body form .form-style select:focus {
+      body .container .form-style input[type=text]:focus,
+      body .container .form-style input[type=date]:focus,
+      body .container .form-style input[type=datetime]:focus,
+      body .container .form-style input[type=number]:focus,
+      body .container .form-style input[type=search]:focus,
+      body .container .form-style input[type=time]:focus,
+      body .container .form-style input[type=url]:focus,
+      body .container .form-style input[type=email]:focus,
+      body .container .form-style textarea:focus,
+      body .container .form-style select:focus {
         -moz-box-shadow: 0 0 8px #88D5E9;
         -webkit-box-shadow: 0 0 8px #88D5E9;
         box-shadow: 0 0 8px #88D5E9;
         border: 1px solid #88D5E9; }
-      body form .form-style .field-divided {
+      body .container .form-style .field-divided {
         width: 49%; }
-      body form .form-style .field-long {
+      body .container .form-style .field-long {
         width: 100%; }
-      body form .form-style .field-select {
+      body .container .form-style .field-select {
         width: 100%; }
-      body form .form-style .field-textarea {
+      body .container .form-style .field-textarea {
         height: 100px; }
-      body form .form-style input[type=submit], body form .form-style input[type=button] {
+      body .container .form-style input[type=submit], body .container .form-style input[type=button] {
         background: #4B99AD;
         padding: 8px 15px 8px 15px;
         border: none;
         color: #fff; }
-      body form .form-style input[type=submit]:hover, body form .form-style input[type=button]:hover {
+      body .container .form-style input[type=submit]:hover, body .container .form-style input[type=button]:hover {
         background: #4691A4;
         box-shadow: none;
         -moz-box-shadow: none;
         -webkit-box-shadow: none; }
-      body form .form-style .required {
+      body .container .form-style .required {
         color: #e00a0a; }
 
 /*# sourceMappingURL=style.css.map */

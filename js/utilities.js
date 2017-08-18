@@ -1,6 +1,6 @@
 app.service('IDGenerator',function(){
     this.generateInterviewID = function(){
-        var id = "#"+Math.random().toString(15).slice(2);
+        var id = "#"+Math.random().toString(12).slice(2).substr(0,13);
         if(!this.is_id_redundant(id)){
             return id;
         }else this.generateInterviewID(); // Recursive function call
@@ -26,5 +26,36 @@ app.service('storage',function(){
             ta_records.push(records);
             localStorage.setItem("ta_records",JSON.stringify(ta_records));
             console.log(JSON.parse(localStorage.getItem("ta_records")));
+    }
+});
+
+app.service('ta_validate',function(){
+
+    this.checkRequired = function(values){
+        for (var i in values) {
+            if (values[i] == "") {
+                return false;
+                break;
+            }
+        }
+        return true;
+    }
+    this.checkPhone = function(number){
+        if(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(number)){  
+            return true;  
+        } 
+        return false;    
+    }
+    this.checkEmail = function(email){
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){  
+            return true;  
+        }
+        return false;
+    }
+    this.checkInterviewID = function(id){
+        if(/^([a-zA-Z0-9 _-]+)$/.test(id)){
+            return true;
+        }
+        return false;
     }
 });
